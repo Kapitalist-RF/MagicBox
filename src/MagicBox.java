@@ -4,13 +4,13 @@ public class MagicBox<T> {
 
     public T[] items;
 
-    public MagicBox(int count){
+    public MagicBox(int count) {
         items = (T[]) new Object[count];
     }
 
-    public boolean add(T item){
-        for(int i = 0; i < items.length; i++){
-            if(items[i] == null){
+    public boolean add(T item) {
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null) {
                 items[i] = item;
                 return true;
             }
@@ -18,15 +18,15 @@ public class MagicBox<T> {
         return false;
     }
 
-    public T pick(){
+    public T pick() {
         int emptyArr = 0;
-        for(int i = 0; i < items.length; i++){
-            if(items[i] == null){
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] == null) {
                 emptyArr++;
             }
         }
-        if(emptyArr != 0){
-            throw new RuntimeException("Коробка не полна и осталось ещё "+ emptyArr + " ячеек заполнить");
+        if (emptyArr != 0) {
+            throw new RuntimeException("Коробка не полна и осталось ещё " + emptyArr + " ячеек заполнить");
         } else {
             Random random = new Random();
             int randomInt = random.nextInt(items.length);
@@ -34,7 +34,7 @@ public class MagicBox<T> {
         }
     }
 
-    public int sizeItems(){
+    public int sizeItems() {
         return items.length;
     }
 
